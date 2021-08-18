@@ -6,7 +6,8 @@ export const Wrapper = styled.div`
         rgba(0, 0, 0, 0) 39%, 
         rgba(0, 0, 0, 0.65) 100%
         ), url(${ ({image}) => image }), var(--darkGrey);
-    background-size: cover 100%;
+    background-size: 100%, cover;
+    background-position: center;
     height: 600px;
     position: relative;
     animation: animateHeroImage 1.5s;
@@ -15,7 +16,6 @@ export const Wrapper = styled.div`
         from {
             opacity: 0;
         }
-        
         to {
             opacity: 1;
         }
@@ -44,4 +44,17 @@ export const Text = styled.div`
             font-size: var(--fontBig)
         }
     }
+    
+    p {
+        font-size: var(--fontMed);
+        
+        @media screen and (max-width: 720px) {
+            font-size: var(--fontSmall)
+        }
+    }
+    
+    @media screen and (max-width: 720px) {
+        max-width: 100%100px;
+    }
+    
 `
