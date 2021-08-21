@@ -15,6 +15,10 @@ export const useHomeFetch = () => {
     const [moviesState, setMoviesState ] = useState(initialState);
     const [loading, setLoading ] = useState(false)
     const [ error, setError ] = useState(false)
+    // searchTerm state
+    const [searchText, setSearchText] = useState('')
+    
+    // console.log(searchText)
     
     // fetch all movies with two parameters
     const fetchMovies = async (page, searchTerm = "") => {
@@ -45,5 +49,5 @@ export const useHomeFetch = () => {
         fetchMovies(1) 
     }, [])
     
-    return { moviesState, loading, error }
+    return { moviesState, loading, error, setSearchText }
 }

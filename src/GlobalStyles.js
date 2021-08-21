@@ -4,7 +4,8 @@ export const GlobalStyle = createGlobalStyle`
     :root {
         --max-width: 1280px;
         --white: #fff;
-        --lightGrey: #353535;
+        --lightGrey: #eee;
+        --medGrey: #353535;
         --darkGrey: #1c1c1c;
         --fontSuperBig: 2.5rem;
         --fontBig: 1.5rem;
@@ -14,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
     
     * {
         box-sizing: border-box;
-        font-family: 'Abel', san-serif;
+        font-family: 'Abel', sans-serif;
     }
     
     body {
@@ -33,8 +34,8 @@ export const GlobalStyle = createGlobalStyle`
         }
         
         p {
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 0.981rem;
+            font-weight: 500;
         }
     }
     
