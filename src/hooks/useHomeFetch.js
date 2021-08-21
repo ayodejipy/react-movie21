@@ -21,7 +21,7 @@ export const useHomeFetch = () => {
     // console.log(searchText)
     
     // fetch all movies with two parameters
-    const fetchMovies = async (page, searchTerm = "") => {
+    const fetchMovies = async (page, searchTerm = '') => {
         try {
             setLoading(true)
             const movies = await API.fetchMovies(searchTerm, page) 
@@ -43,11 +43,14 @@ export const useHomeFetch = () => {
         }
     };
     
-    // [] dependency array for useEffect, it will just run once
+    // [] dependency array for useEffect, it will just run once. render when searcText changes
     useEffect(() => {
+        // reset/clean movie state before fetching
+        setMoviesState(initialState)
+        
         // '1' because we want to fetch movies from the first page.
-        fetchMovies(1) 
-    }, [])
+        fetchMovies(1, searchText) 
+    }, [searchText])
     
-    return { moviesState, loading, error, setSearchText }
+    return { moviesState, loading, error, searchText, setSearchText }
 }
