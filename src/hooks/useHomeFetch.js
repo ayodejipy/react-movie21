@@ -37,6 +37,8 @@ export const useHomeFetch = () => {
                 ...movies,
                 results: page > 1 ? [...prev.results, ...movies.results] : [...movies.results] 
             }))
+            // set loading to false once we're done loading..
+            setLoading(false)
             
         } catch (error) {
             setError(true)

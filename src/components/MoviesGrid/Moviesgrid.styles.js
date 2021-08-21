@@ -4,6 +4,7 @@ export const Wrapper = styled.section`
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 20px;
+    margin-top: 55px;
     
     h1 {
         color: var(--medGrey);

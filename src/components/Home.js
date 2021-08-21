@@ -18,6 +18,7 @@ import Button from './Button/Button'
 
 const Home = () => {
     const { moviesState, loading, error, searchText, setSearchText } = useHomeFetch()
+    
     const firstMovieTitle = moviesState.results[0] && moviesState.results[0].original_title
     const firstMovieOverview = moviesState.results[0] && moviesState.results[0].overview
     const firstMovieImage = moviesState.results[0] && moviesState.results[0].backdrop_path
