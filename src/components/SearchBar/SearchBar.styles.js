@@ -18,18 +18,27 @@ export const Content = styled.div`
     border-radius: 40px;
     color: var(--white);
     
-    img {}
+    img {
+        position: absolute;
+        left: 20px;
+        top: 18px;
+        width: 20px;
+    }
     
     input {
-        font-size: 25px;
+        font-size: 20px;
         position: absolute;
         left: 0;
         margin: 8px 0;
         padding: 0 0 0 60px;
         border: 0;
-        width: 95%initial;
+        width: 95%;
         background: transparent;
         height: 40px;
-        color: var(--white)
+        color: var(--white);
+        
+        :focus {
+            outline: none;
+        }
     }
 `
