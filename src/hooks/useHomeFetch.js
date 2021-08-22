@@ -17,6 +17,7 @@ export const useHomeFetch = () => {
     const [ error, setError ] = useState(false)
     // searchTerm state
     const [searchText, setSearchText] = useState('')
+    const [loadingMore, setLoadingMore] = useState(false)
     
     // console.log(searchText)
     
@@ -54,5 +55,16 @@ export const useHomeFetch = () => {
         fetchMovies(1, searchText) 
     }, [searchText])
     
-    return { moviesState, loading, error, searchText, setSearchText }
+    // Load more
+    useEffect(() => {
+     if(!loadingMore) return
+     
+    //  fetch next page by adding 1 to current page, then search text if we are searching
+     fetchMovies(moviesState.page + 1, searchText)
+     
+     setLoadingMore(false) // set flag to false
+     
+    }, [loadingMore, moviesState, searchText])
+    
+    return { moviesState, loading, error, searchText, setSearchText, setLoadingMore }
 }

@@ -10,6 +10,7 @@ export const ButtonWrap = styled.button`
     margin-top: 25px;
     margin-bottom: 25px;
     font-size: var(--fontSmall);
+    font-weight: 500;
     border: 0;
     border-radius: 30px;
     cursor: pointer;
