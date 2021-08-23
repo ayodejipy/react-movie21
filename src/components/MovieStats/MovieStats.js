@@ -1,42 +1,22 @@
 import React from "react";
-// Components
-import Thumbnail from "../Thumnail/Thumbnail";
-// Config
-import { IMAGE_BASE_URL, POSTER_SIZE } from "../../config";
-// import image
-import NoImage from '../../images/no_image.jpg'
+// Helpers
+import { calcTime, convertMoney } from "../../helpers";
 // Styles
-import { Wrapper, Content, Text } from "./MovieStats.styles";
+import { Wrapper, Content } from "./MovieStats.styles";
 
-const MovieStat = ({ movie }) => {
+const MovieStat = ({ time, budget, revenue }) => {
     return (
-        <Wrapper backdrop={movie.backdrop_path}>
+        <Wrapper>
             <Content>
-                <Thumbnail 
-                    image={ movie.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}` : NoImage }
-                    clickable
-                />
-                
-                <Text>
-                    <h1>{movie.title}</h1>
-                    <h3>PLOT</h3>
-                    <p>{ movie.overview }</p>
-                    
-                    <div className="rating-directors">
-                        <div>
-                            <h3>RATING</h3>
-                            <div className="score">
-                                {movie.vote_average}
-                            </div>
-                        </div>
-                        <div className="director">
-                            <h3> DIRECTOR{movie.directors.length > 1 ? 'S' : ''} </h3>
-                            {movie.directors.map(director => (
-                                <p key={director.credit_id}> {director.name} </p>
-                            ))}
-                        </div>
-                    </div>
-                </Text>
+                <div className="column">
+                    <p>Running time: { calcTime(time)}  </p>
+                </div>
+                <div className="column">
+                    <p>Budget: { convertMoney(budget)}  </p>
+                </div>
+                <div className="column">
+                    <p>Revenue: { convertMoney(revenue)}  </p>
+                </div>
             </Content>
         </Wrapper>
     )

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 
 // API
 import API from '../API'
@@ -59,7 +59,7 @@ export const useHomeFetch = () => {
     useEffect(() => {
      if(!loadingMore) return
      
-    //  fetch next page by adding 1 to current page, then search text if we are searching
+    //  fetch next page by adding 1 to current page, then search text if we are
      fetchMovies(moviesState.page + 1, searchText)
      
      setLoadingMore(false) // set flag to false

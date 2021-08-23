@@ -6,7 +6,9 @@ import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
 import MoviesGrid from './MoviesGrid/MoviesGrid';
 import Spinner from './Spinner/Spinner';
 import Breadcrumb from './Breadcrumb/Brumbcrumb';
+import MovieHero from './MovieHero/MovieHero';
 import MovieStat from './MovieStats/MovieStats';
+import Actor from './Actor/Actor';
 // Hook
 import { useMovieFetch } from '../hooks/useMovieFetch';
 // No Image
@@ -26,7 +28,18 @@ const Movie = () => {
     return (
         <div>
             <Breadcrumb movieTitle={movie.original_title} />
-            <MovieStat movie={movie} />
+            <MovieHero movie={movie} />
+            <MovieStat time={movie.runtime} budget={movie.budget} revenue={movie.revenue} />
+            <MoviesGrid header={'Actors'}>
+                { movie.actors.map( actor => 
+                    <Actor
+                        key={actor.credit_id}
+                        name={actor.name}
+                        character={actor.character}
+                        imageUrl={ actor.profile_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${actor.profile_path}` : NoImage }
+                    />
+                )}
+            </MoviesGrid>
         </div>
     )
 }
