@@ -3,7 +3,7 @@ import React from 'react'
 // Styles
 import { Wrapper, Content } from './Moviesgrid.styles'
 
-const moviesgrid = ({ header, children }) => {
+const MoviesGrid = ({ header, children }) => {
     return (
         <Wrapper>
             <h1>{header}</h1>
@@ -12,4 +12,4 @@ const moviesgrid = ({ header, children }) => {
     )
 }
 
-export default moviesgrid;  
+export default MoviesGrid;  

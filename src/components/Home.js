@@ -43,7 +43,7 @@ const Home = () => {
                 { moviesState.results.map( movie => (
                     <Thumbnail 
                         key={movie.id} 
-                        // clickable
+                        clickable
                         image={ movie.poster_path ? IMAGE_BASE_URL + POSTER_SIZE + movie.poster_path : NoImage }
                         movieId={movie.id} 
                     />

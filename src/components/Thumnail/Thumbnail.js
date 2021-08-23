@@ -1,5 +1,5 @@
 import React from 'react';
-import moviesgrid from '../MoviesGrid/MoviesGrid';
+import { Link } from 'react-router-dom';
 // Styles
 import { Image } from './Thumbnail.styles';
 
@@ -7,7 +7,9 @@ const Thumbnail = ({ image, movieId, clickable }) => {
     return (
         <div> 
             { clickable 
-                ? <a href=""><Image src={image} alt={movieId} /></a> 
+                ?   <Link to={`/${movieId}`}>
+                        <Image src={image} alt={movieId} />
+                    </Link> 
                 : <Image src={image} alt={movieId} /> 
             
         }
