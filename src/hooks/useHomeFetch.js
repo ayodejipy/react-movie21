@@ -53,7 +53,7 @@ export const useHomeFetch = () => {
         
         // '1' because we want to fetch movies from the first page.
         fetchMovies(1, searchText) 
-    }, [searchText])
+    }, [searchText, setMoviesState])
     
     // Load more
     useEffect(() => {
