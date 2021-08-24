@@ -14,7 +14,7 @@ const Login = () => {
     const [ password, setPassword ] = useState('')
     const [ error, setError ] = useState(false)
     // Use the user context
-    const [user, setUser] = useContext(userContext)
+    const [_user, setUser] = useContext(userContext)
     const navigate = useNavigate()
     
     const handleInput = e => {

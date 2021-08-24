@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 // Component
-import Button from "../Button/Button";
 
 
 const Rate = ({ callback }) => {
