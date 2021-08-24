@@ -20,7 +20,7 @@ const Movie = () => {
     // remember our useMovieFetch hook needs a movieId arg
     const { state: movie, loading, error } = useMovieFetch(movieId)
     
-    console.log(movie)
+    // console.log(movie)
     
     if(loading) return <Spinner />
     if(error) return <div>Error</div>

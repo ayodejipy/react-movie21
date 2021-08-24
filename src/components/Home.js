@@ -37,7 +37,7 @@ const Home = () => {
     const firstMovieOverview = moviesState.results[0] && moviesState.results[0].overview
     const firstMovieImage = moviesState.results[0] && moviesState.results[0].backdrop_path
     
-    console.log(moviesState)
+    // console.log(moviesState)
     
     if(error) return <div>Error: Cannot load up...</div>
     
