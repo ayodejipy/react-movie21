@@ -13,6 +13,22 @@ export const Content = styled.div`
     max-width: var(--max-width);
     padding: 20px 0;
     margin: 0 auto;
+    color: var(--white);
+    
+    a { text-decoration: none }
+    
+    .loggedin {
+        font-size: 0.965rem;
+    }
+    
+    .login-btn {
+        padding: 10px 12px;
+        background: #d256e8;
+        color: var(--white);
+        font-size: 0.7865rem;
+        border: none;
+        border-radius: 3px;
+    }
 `
 
 export const LogoImg = styled.img`

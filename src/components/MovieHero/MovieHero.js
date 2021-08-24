@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+import API from '../../API';
 // Components
 import Thumbnail from "../Thumnail/Thumbnail";
+import Rate from "../Rate/Rate";
 // Config
 import { IMAGE_BASE_URL, POSTER_SIZE } from "../../config";
 // import image
 import NoImage from '../../images/no_image.jpg'
 // Styles
 import { Wrapper, Content, Text } from "./MovieHero.styles";
+// Context
+import { userContext } from "../../context";
 
 const MovieHero = ({ movie }) => {
+    const [user] = useContext(userContext)
+    
+    const handleRating = async value => {
+        const rate = await API.rateMovie( user.sessionId, movie.id, value)
+        const message = 'You have successfully voted.'
+        if(rate.success) return alert(message);
+        console.log(rate)
+    }
+    
     return (
         <Wrapper backdrop={movie.backdrop_path}>
             <Content>
@@ -36,6 +49,14 @@ const MovieHero = ({ movie }) => {
                             ))}
                         </div>
                     </div>
+                    
+                    { user && 
+                    
+                        <div>
+                            <p>Rate Movie</p>
+                            <Rate callback={handleRating} />
+                        </div>
+                    }
                 </Text>
             </Content>
         </Wrapper>
